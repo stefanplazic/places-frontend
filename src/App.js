@@ -1,6 +1,6 @@
 import  { useState, useEffect } from 'react';
 import './App.css';
-import { getAll, search} from './services/place.service.ts';
+import { getAll, search, getOne} from './services/place.service.ts';
 
 function App() {
   const [places, setPlaces] = useState([]);
@@ -10,7 +10,6 @@ function App() {
       try {
         const allPlaces = await getAll();
         setPlaces(allPlaces);
-        console.log({allPlaces});
       } catch (error) {
         console.error('Error fetching places:', error.message);
       }
@@ -21,10 +20,26 @@ function App() {
 
   const handleInputChange = async (event) => {
     const searchTerm = event.target.value;
-   if(searchTerm=== '') return;
-    // get search results from server
-    const searchResults = await search(searchTerm);
+    let searchResults;
+
+    // if search box is empty
+    // fetch all places
+   if(searchTerm=== '') searchResults = await getAll();
+   
+  else 
+  // oterwise search places by search term
+  searchResults = await search(searchTerm);
     setPlaces(searchResults);
+  };
+
+
+  const handleGetOneClick = async (id) => {
+    try {
+      const result = await getOne(id); 
+      console.log({result});
+    } catch (error) {
+      console.error('Error fetching single result:', error);
+    }
   };
 
 
@@ -40,8 +55,8 @@ function App() {
       />
 
         <ul>
-          {places.map((place, index) => (
-            <li key={index}>
+          {places.map((place) => (
+            <li key={place.id} onClick={() => handleGetOneClick(place.id)}>
               <strong>{place.name}</strong> - {place.address}
             </li>
           ))}
