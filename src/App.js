@@ -2,6 +2,9 @@ import  { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './App.css';
 import { getAll, search} from './services/place.service.ts';
+import SearchBar from './components/searchBar/SearchBar';
+import ItemHolder from './components/itemHolder/ItemHolder';
+
 
 function App() {
   const [places, setPlaces] = useState([]);
@@ -35,31 +38,12 @@ function App() {
     setPlaces(searchResults);
   };
 
-
-  const handleGetOneClick = async (id) => {
-    navigate(`/details/${id}`);
-  };
-
-
   return (
     <div className="App">
 
         <h1>Place Finder</h1>
-
-        <input
-        type="text"
-        placeholder="Search business entries..."
-        onChange={handleInputChange}
-      />
-
-        <ul>
-          {places.map((place) => (
-            <li key={place.id} onClick={() => handleGetOneClick(place.id)}>
-              <strong>{place.name}</strong> - {place.address}
-            </li>
-          ))}
-        </ul>
-
+        <SearchBar handleInputChange={handleInputChange}/>
+        <ItemHolder placeItems={places}></ItemHolder>
     </div>
   );
 }

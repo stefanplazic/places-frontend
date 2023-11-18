@@ -1,0 +1,7 @@
+input[type="text"] {
+    width: 50%;
+    padding: 10px; /* Adjust the padding as needed */
+    border: 1px solid #ccc; /* Add a border for a cleaner look */
+    border-radius: 10px; /* Adjust the border-radius for rounded corners */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  }

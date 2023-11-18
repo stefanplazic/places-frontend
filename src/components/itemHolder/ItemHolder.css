@@ -1,0 +1,9 @@
+.container {
+    width: 50%;
+    padding-top: 5vh;
+    /* padding: 0px;; */
+    margin: 0 auto; /* Center the container horizontally */
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next row */
+    justify-content: space-between; /* Distribute items evenly in the row */
+  }

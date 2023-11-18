@@ -1,0 +1,9 @@
+.place-item {
+    width: 40%;
+    margin: 0 auto; /* Center the div horizontally */
+    text-align: center; /* Center the text within the div */
+    padding: 20px; /* Add padding for better appearance (adjust as needed) */
+    border: 1px solid #ccc; /* Optional: Add a border for a cleaner look */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    cursor: pointer;
+  }

@@ -32,7 +32,8 @@ function Details() {
      ( 
       <>
       <h1>{place.name}</h1>
-       <p>{place.id}</p>
+       <p>{place.address}</p>
+       <p>{place.website}</p>
        </>
        )
     }
