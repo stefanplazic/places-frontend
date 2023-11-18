@@ -1,9 +1,12 @@
 import  { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './App.css';
-import { getAll, search, getOne} from './services/place.service.ts';
+import { getAll, search} from './services/place.service.ts';
 
 function App() {
   const [places, setPlaces] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPlaces = async () => {
@@ -34,12 +37,7 @@ function App() {
 
 
   const handleGetOneClick = async (id) => {
-    try {
-      const result = await getOne(id); 
-      console.log({result});
-    } catch (error) {
-      console.error('Error fetching single result:', error);
-    }
+    navigate(`/details/${id}`);
   };
 
 
