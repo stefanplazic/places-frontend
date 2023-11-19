@@ -48,7 +48,7 @@ function Details() {
   return (
     <div className="details-container">
       {error ? (
-        <span>Error occurred</span>
+        <span>Something went wrong, please try again</span>
       ) : place ? (
         <div className="info-holder">
           <div className='left-item'>
