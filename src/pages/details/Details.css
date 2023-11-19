@@ -1,4 +1,28 @@
 .details-container{
     padding-left: 10vh;
     padding-right: 10vh;
+    font-size: 1.5em; 
 }
+
+
+.info-holder{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .left-item, .right-item {
+    width: 50%; 
+  }
+
+  .right-item{
+    padding-top: 15vh;
+  }
+
+  .time-item {
+    width: 100%;
+    display: flex;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  
