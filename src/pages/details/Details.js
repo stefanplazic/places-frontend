@@ -43,7 +43,7 @@ function Details() {
     };
 
     fetchPlace();
-  },[]);
+  },[id]);
 
   return (
     <div className="details-container">

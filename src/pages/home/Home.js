@@ -1,15 +1,12 @@
 import  { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './App.css';
-import { getAll, search} from './services/place.service.ts';
-import SearchBar from './components/searchBar/SearchBar';
-import ItemHolder from './components/itemHolder/ItemHolder';
+import './Home.css';
+import { getAll, search} from '../../services/place.service.ts';
+import SearchBar from '../../components/searchBar/SearchBar';
+import ItemHolder from '../../components/itemHolder/ItemHolder';
 
 
-function App() {
+function Home() {
   const [places, setPlaces] = useState([]);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPlaces = async () => {
@@ -48,4 +45,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
